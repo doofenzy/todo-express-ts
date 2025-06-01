@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 // import AppError from './utils/AppError';
 import authRoutes from './routes/AuthRoutes';
+import todoRoutes from './routes/TodoRoute';
+import { todo } from 'node:test';
 dotenv.config();
 
 const app = express();
@@ -17,7 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/v1/auth', authRoutes);
-
+app.use('/api/v1/', todoRoutes);
 // app.all('*', (req, res, next) => {
 //   next(new AppError(`Cannot ${req.method} ${req.originalUrl}`, 404));
 // });
