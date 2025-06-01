@@ -1,10 +1,18 @@
 import { Router } from 'express';
 import authenticateToken from '../middleware/Auth';
-import { createTodo } from '../controller/TodoController';
+import {
+  createTodo,
+  getTodos,
+  updateTodo,
+  deleteTodo,
+} from '../controller/TodoController';
 
-const route = Router();
-route.use(authenticateToken);
+const router = Router();
+router.use(authenticateToken);
 
-route.post('/todo', createTodo);
+router.post('/todo', createTodo);
+router.get('/todo', getTodos);
+router.delete('/todo/:id', deleteTodo);
+router.patch('/todo/:id', updateTodo);
 
-export default route;
+export default router;
