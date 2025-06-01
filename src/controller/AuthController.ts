@@ -45,7 +45,7 @@ const login = async (
   next: NextFunction
 ): Promise<void> => {
   const { username, password } = req.body;
-  res.status(401).json({ username, password });
+
   try {
     const user = await User.findOne({ username });
 
